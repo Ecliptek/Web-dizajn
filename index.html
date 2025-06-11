@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responzivna slika - Primjer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .image-container {
+            margin: 30px 0;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .code {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcom to my page</h1>
+    <h1>Responzivna slika - Primjer</h1>
+    
+    <div class="image-container">
+        <h2>1. Osnovni responzivni prikaz (CSS)</h2>
+        <img src="primjer.jpg" alt="Primjer responzivne slike" loading="lazy">
+        <div class="code">
+            <code>
+                img {<br>
+                &nbsp;&nbsp;max-width: 100%;<br>
+                &nbsp;&nbsp;height: auto;<br>
+                }
+            </code>
+        </div>
+    </div>
+    
+    <div class="image-container">
+        <h2>2. Responzivna slika s srcset atributom</h2>
+        <img src="primjer-400.jpg" 
+             srcset="primjer-800.jpg 800w, primjer-1200.jpg 1200w" 
+             sizes="(max-width: 600px) 480px, 800px"
+             alt="Primjer slike s srcset atributom"
+             loading="lazy">
+        <div class="code">
+            <code>
+                &lt;img src="primjer-400.jpg" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; srcset="primjer-800.jpg 800w, primjer-1200.jpg 1200w" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; sizes="(max-width: 600px) 480px, 800px"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; alt="Primjer slike s srcset atributom"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; loading="lazy"&gt;
+            </code>
+        </div>
+    </div>
+    
+    <div class="image-container">
+        <h2>3. Element &lt;picture&gt; s modernim formatima</h2>
+        <picture>
+            <source srcset="primjer.webp" type="image/webp">
+            <source srcset="primjer.avif" type="image/avif">
+            <source srcset="primjer.jpg" type="image/jpeg">
+            <img src="primjer.jpg" alt="Primjer elementa picture" loading="lazy">
+        </picture>
+        <div class="code">
+            <code>
+                &lt;picture&gt;<br>
+                &nbsp;&nbsp;&lt;source srcset="primjer.webp" type="image/webp"&gt;<br>
+                &nbsp;&nbsp;&lt;source srcset="primjer.avif" type="image/avif"&gt;<br>
+                &nbsp;&nbsp;&lt;source srcset="primjer.jpg" type="image/jpeg"&gt;<br>
+                &nbsp;&nbsp;&lt;img src="primjer.jpg" alt="Primjer elementa picture" loading="lazy"&gt;<br>
+                &lt;/picture&gt;
+            </code>
+        </div>
+    </div>
+    
+    <div class="image-container">
+        <h2>4. Retina prikaz (visoka rezolucija)</h2>
+        <img src="primjer.jpg" 
+             srcset="primjer.jpg 1x, primjer-2x.jpg 2x"
+             alt="Primjer za Retina ekrane"
+             loading="lazy">
+        <div class="code">
+            <code>
+                &lt;img src="primjer.jpg" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; srcset="primjer.jpg 1x, primjer-2x.jpg 2x"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; alt="Primjer za Retina ekrane"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; loading="lazy"&gt;
+            </code>
+        </div>
+    </div>
+    
 </body>
 </html>
