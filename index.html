@@ -3,54 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Responsive Images | Dev Showcase</title>
+    <title>Responsive Architecture | IT Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background-blobs"></div>
     
     <header>
         <h1>Responsive Image Architecture</h1>
-        <p>Demonstracija modernih metoda optimizacije slika za web</p>
+        <p>Demonstracija modernih metoda optimizacije slika za web razvoj.</p>
     </header>
 
     <main class="container">
-        <section class="card" data-tilt>
+        <section class="card">
             <div class="card-content">
-                <h2>01. CSS Fluid Layout</h2>
+                <span class="badge">CSS</span>
+                <h2>01. Fluid Layout</h2>
                 <div class="image-wrapper">
-                    <img src="https://picsum.photos/800/500" alt="Fluid display">
+                    <img src="https://picsum.photos/id/1/800/500" alt="Laptop na stolu">
                 </div>
-                <pre><code>img { max-width: 100%; height: auto; }</code></pre>
+                <p>Osnovna responzivnost osigurava da slika nikada ne "pukne" izvan okvira svog roditelja.</p>
+                <button class="view-code-btn">Prikaži kod</button>
+                <div class="code-drawer">
+                    <pre><code>img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+                </div>
             </div>
         </section>
 
         <section class="card">
             <div class="card-content">
+                <span class="badge">HTML5</span>
                 <h2>02. Smart Density (srcset)</h2>
                 <div class="image-wrapper">
-                    <img src="https://picsum.photos/400/300" 
-                         srcset="https://picsum.photos/800/600 800w, https://picsum.photos/1200/900 1200w" 
+                    <img src="https://picsum.photos/id/10/400/300" 
+                         srcset="https://picsum.photos/id/10/800/600 800w, https://picsum.photos/id/10/1200/900 1200w" 
                          sizes="(max-width: 600px) 100vw, 800px" 
-                         alt="Resolution switching">
+                         alt="Planina">
                 </div>
+                <p>Preglednik sam bira veličinu slike ovisno o rezoluciji ekrana (štedi podatke na mobitelu).</p>
                 <button class="view-code-btn">Prikaži kod</button>
+                <div class="code-drawer">
+                    <pre><code>&lt;img src="small.jpg" 
+     srcset="med.jpg 800w, large.jpg 1200w" 
+     sizes="(max-width: 600px) 100vw, 800px"&gt;</code></pre>
+                </div>
             </div>
         </section>
 
         <section class="card">
             <div class="card-content">
-                <h2>03. Next-Gen Formats (AVIF/WebP)</h2>
+                <span class="badge">Optimization</span>
+                <h2>03. Next-Gen Formats</h2>
                 <div class="image-wrapper">
                     <picture>
-                        <source srcset="https://picsum.photos/800/500.webp" type="image/webp">
-                        <img src="https://picsum.photos/800/500" alt="Modern formats">
+                        <source srcset="https://picsum.photos/id/26/800/500.webp" type="image/webp">
+                        <img src="https://picsum.photos/id/26/800/500" alt="Gadgets">
                     </picture>
                 </div>
-                <p class="info-text">Automatsko serviranje najlakšeg formata ovisno o pregledniku.</p>
+                <p>Korištenje <code>&lt;picture&gt;</code> taga za serviranje WebP ili AVIF formata uz fallback na JPG.</p>
+                <button class="view-code-btn">Prikaži kod</button>
+                <div class="code-drawer">
+                    <pre><code>&lt;picture&gt;
+  &lt;source srcset="img.webp" type="image/webp"&gt;
+  &lt;img src="img.jpg" alt="Fallback"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2024 | Tehničar za računalstvo Portfolio</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
